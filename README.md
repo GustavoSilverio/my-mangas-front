@@ -21,7 +21,7 @@ Este projeto está licenciado sob a [MIT License](LICENSE). Sinta-se à vontade 
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/my-mangas.git
+   git clone https://github.com/GustavoSilverio/my-mangas-front.git
     ```
 2. Instale as dependências:
     ```bash
