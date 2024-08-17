@@ -1,6 +1,6 @@
 # My-mangas 🥭
 
-Este é o projeto de front-end e python que obtém e exibe mangás em uma interfaces simples e sem anúncios, utilizando a linguagem **TypeScript**.
+Este é o projeto de front-end com python que obtém e exibe mangás em uma interface simples e sem anúncios, utilizando as linguagens **TypeScript** e **Python**.
 
 ## 📂 Estrutura do Projeto
 
