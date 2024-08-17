@@ -6,8 +6,8 @@ Este é o projeto de front-end e python que obtém e exibe mangás em uma interf
 
 Este repositório contém o código-fonte do front-end da aplicação. Para visualizar o projeto completo, incluindo automação e API, veja as outras partes do sistema:
 
-- **Automação/Web-Scraper**: Um script em Python que coleta dados de mangás de uma plataforma online. Utiliza bibliotecas nativas de Python e multi-threading para maximizar a eficiência.
-- **API**: Uma API que serve os dados coletados pela automação/web-scraper. Os dados são armazenados em um banco de dados MongoDB e servidos ao front-end.
+- [**Automação/Web-Scraper**](https://github.com/GustavoSilverio/my-mangas-scraper): Um script em Python que coleta dados de mangás de uma plataforma online. Utiliza bibliotecas nativas de Python e multi-threading para maximizar a eficiência.
+- [**API**](https://github.com/GustavoSilverio/my-mangas-api): Uma API que serve os dados coletados pela automação/web-scraper. Os dados são armazenados em um banco de dados MongoDB e servidos ao front-end.
 
 ## ⚖️ Aviso Legal
 
