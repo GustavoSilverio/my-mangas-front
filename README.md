@@ -27,8 +27,14 @@ Este projeto está licenciado sob a [MIT License](LICENSE). Sinta-se à vontade 
     ```bash
     npm i
     ```
-3. Inicie o projeto
+    
+3. Crie um arquivo .env na raiz do projeto e adicione a seguinte env var:
+    ```env
+    NEXT_PUBLIC_BACKEND_BASE_URL=http://localhost:8000
+    ```
+    
+4. Inicie o projeto
     ```bash
     npm run dev
     ```
-4. Acesse o projeto no seu navegador em `http://localhost:3000`
+5. Acesse o projeto no seu navegador em `http://localhost:3000`
