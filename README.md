@@ -1,6 +1,6 @@
 # My-mangas 🥭
 
-Este é o projeto de front-end e python que obtém e exibe mangás em uma interfaces simples e sem anúncios, utilizando a linguagem **TypeScript**.
+Este é o projeto de front-end com python que obtém e exibe mangás em uma interface simples e sem anúncios, utilizando as linguagens **TypeScript** e **Python**.
 
 ## 📂 Estrutura do Projeto
 
@@ -21,14 +21,20 @@ Este projeto está licenciado sob a [MIT License](LICENSE). Sinta-se à vontade 
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/my-mangas.git
+   git clone https://github.com/GustavoSilverio/my-mangas-front.git
     ```
 2. Instale as dependências:
     ```bash
     npm i
     ```
-3. Inicie o projeto
+    
+3. Crie um arquivo .env na raiz do projeto e adicione a seguinte env var:
+    ```env
+    NEXT_PUBLIC_BACKEND_BASE_URL=http://localhost:8000
+    ```
+    
+4. Inicie o projeto
     ```bash
     npm run dev
     ```
-4. Acesse o projeto no seu navegador em `http://localhost:3000`
+5. Acesse o projeto no seu navegador em `http://localhost:3000`
