@@ -4,10 +4,6 @@ export interface Manga {
     capitulos: Capitulo[]
 }
 
-export interface ValidateKeyRes {
-    isValid: boolean
-}
-
 interface Capitulo {
     nomeCapitulo: string
     paginas: string[]

@@ -1,34 +1,27 @@
-import { useMutation, useQuery } from "react-query"
-import { Manga, ValidateKeyRes } from "../models/manga"
+import { useQuery } from "react-query"
+import { Manga } from "../models/manga"
 import { api } from "../services/axios"
 
-export const useObterMangas = () => {
+export const useObterMangas = (
+    query: string | null = null,
+    enabled: boolean = true
+) => {
     return useQuery<Manga[]>(
         ["mangas"],
 
         async () => {
-            const { data } = await api.get("/mangas")
-            return data as Manga[]
-        }
-    )
-}
-
-export const useValidateKey = () => {
-    return useMutation<ValidateKeyRes, undefined, string>(
-        async (key) => {
-            const { data } = await api.post(
-                `/validate`,
-                {
-
-                },
+            const { data } = await api.get(
+                "/mangas",
                 {
                     params: {
-                        key: key,
+                        q: query
                     }
                 }
             )
-
-            return data as ValidateKeyRes
+            return data as Manga[]
+        },
+        {
+            enabled: enabled
         }
     )
 }
