@@ -20,6 +20,12 @@ const nextConfig = {
 				port: "",
 				pathname: "/**",
 			},
+			{
+				protocol: 'https',
+				hostname: 'black.slimeread.com',
+				port: '',
+				pathname: '/**',
+			},
 		],
 	},
 }
