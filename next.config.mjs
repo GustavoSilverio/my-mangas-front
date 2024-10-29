@@ -1,15 +1,27 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'mangaonline.biz',
-                port: '',
-                pathname: '/wp-content/uploads/**',
-            },
-        ],
-    },
-};
+	images: {
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "mangaonline.biz",
+				port: "",
+				pathname: "/wp-content/uploads/**",
+			},
+			{
+				protocol: "https",
+				hostname: "cdn.slimeread.com",
+				port: "",
+				pathname: "/banners/**",
+			},
+			{
+				protocol: "https",
+				hostname: "objects.slimeread.com",
+				port: "",
+				pathname: "/**",
+			},
+		],
+	},
+}
 
-export default nextConfig;
+export default nextConfig
