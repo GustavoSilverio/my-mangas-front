@@ -26,6 +26,12 @@ const nextConfig = {
 				port: '',
 				pathname: '/**',
 			},
+			{
+				protocol: 'https',
+				hostname: 'slimeread.com',
+				port: '',
+				pathname: '/_next/image',
+			},
 		],
 	},
 }
