@@ -16,7 +16,7 @@ export const MangaItem = ({
             className="flex flex-col gap-2 max-w-44 rounded-sm px-4 py-6 border border-slate-700 transition duration-300 hover:bg-slate-900"
         >
             <Image
-                src={manga.capitulos[0].paginas[0]}
+                src={manga.imgCapa}
                 alt="Imagem do primeiro capítulo do mangá"
                 className="w-[142px] h-[207px] rounded-md"
                 width={150}

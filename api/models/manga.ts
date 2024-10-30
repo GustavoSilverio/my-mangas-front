@@ -1,10 +1,11 @@
 export interface Manga {
-    _id: string
-    nome: string
-    capitulos: Capitulo[]
+	_id: string
+	nome: string
+	capitulos: Capitulo[]
+	imgCapa: string
 }
 
 interface Capitulo {
-    nomeCapitulo: string
-    paginas: string[]
+	nomeCapitulo: string
+	paginas: string[]
 }
