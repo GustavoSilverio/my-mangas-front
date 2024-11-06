@@ -5,7 +5,7 @@ export interface Manga {
 	imgCapa: string
 }
 
-interface Capitulo {
+export interface Capitulo {
 	nomeCapitulo: string
 	paginas: string[]
 }
