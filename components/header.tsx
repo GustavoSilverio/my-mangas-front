@@ -6,8 +6,8 @@ export const Header = () => {
             <Link
                 href="/home"
             >
-                <h1 className="text-3xl font-bold">
-                    My mangas 🥭
+                <h1 className="text-2xl sm:text-3xl font-bold">
+                    my mangas 🥭
                 </h1>
             </Link>
         </header>

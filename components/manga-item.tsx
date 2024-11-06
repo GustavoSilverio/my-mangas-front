@@ -13,12 +13,12 @@ export const MangaItem = ({
     return (
         <Link
             href={`/manga/${codificarString(manga.nome)}`}
-            className="flex flex-col gap-2 max-w-44 rounded-sm px-4 py-6 border border-slate-700 transition duration-300 hover:bg-slate-900"
+            className="flex flex-col items-center gap-2 w-full rounded-sm px-4 py-6 border border-slate-700 transition duration-300 hover:bg-slate-900"
         >
             <Image
                 src={manga.imgCapa}
                 alt="Imagem do primeiro capítulo do mangá"
-                className="w-[142px] h-[207px] rounded-md"
+                className="w-[142px] h-auto rounded-md"
                 width={150}
                 height={230}
             />
@@ -27,7 +27,7 @@ export const MangaItem = ({
                 <Tooltip delayDuration={0}>
                     <TooltipTrigger asChild>
                         <h3
-                            className="font-semibold truncate"
+                            className="font-semibold w-full text-center"
                         >
                             {manga.nome}
                         </h3>
