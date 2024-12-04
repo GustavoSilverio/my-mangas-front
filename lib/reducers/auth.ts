@@ -6,8 +6,15 @@ interface Auth {
 	token: string
 }
 
+const getInitialToken = (): string => {
+	if (typeof window !== "undefined") {
+		return localStorage.getItem("token") || ""
+	}
+	return ""
+}
+
 const initialState: Auth = {
-	token: localStorage.getItem("token") || "",
+	token: getInitialToken(),
 }
 
 const slice = createSlice({

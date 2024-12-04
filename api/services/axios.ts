@@ -23,7 +23,10 @@ api.interceptors.response.use(
 	(response) => response,
 	(error: CustomError) => {
 		if (error.response?.status === 401) {
-			if (error.response.data.detail.type === "token.expired") {
+			if (
+				error.response.data.detail.type === "token.expired" &&
+				typeof window !== "undefined"
+			) {
 				const token = localStorage.getItem("token") as string
 
 				const payload = decodeToken(token) as TokenPayload
