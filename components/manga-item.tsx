@@ -1,6 +1,5 @@
 'use client'
 
-import { codificarString } from "@/lib/utils"
 import { MangaItemProps } from "@/types/manga-item"
 import Image from "next/image"
 import Link from "next/link"
@@ -12,7 +11,7 @@ export const MangaItem = ({
 
     return (
         <Link
-            href={`/manga/${codificarString(manga.nome)}`}
+            href={`/manga/${manga._id}`}
             className="flex flex-col items-center gap-2 w-full rounded-sm px-4 py-6 border border-slate-700 transition duration-300 hover:bg-slate-900"
         >
             <Image

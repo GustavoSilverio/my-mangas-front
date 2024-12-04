@@ -6,6 +6,8 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import { Analytics } from "@vercel/analytics/react"
 import { Provider } from 'react-redux'
 import { store } from "@/lib/store"
+import { AuthProvider } from "./authProvider"
+import { Toaster } from "./ui/toaster"
 
 export const Providers = ({
     children
@@ -13,12 +15,15 @@ export const Providers = ({
     return (
         <Provider store={store}>
             <QueryClientProvider client={queryClient}>
-                {children}
-                <Analytics />
+                <AuthProvider>
+                    {children}
+                    <Toaster />
+                    <Analytics />
 
-                {process.env.NODE_ENV === "development" && (
-                    <ReactQueryDevtools />
-                )}
+                    {process.env.NODE_ENV === "development" && (
+                        <ReactQueryDevtools />
+                    )}
+                </AuthProvider>
             </QueryClientProvider>
         </Provider>
     )

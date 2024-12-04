@@ -4,14 +4,13 @@ import { useValidateKey } from "@/api/controllers/auth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useToast } from "@/components/ui/use-toast";
 import { setToken } from "@/lib/reducers/auth";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Home() {
-
 	const [key, setKey] = useState("");
 
 	const { toast } = useToast()
@@ -19,38 +18,45 @@ export default function Home() {
 	const router = useRouter()
 
 	const {
-		mutateAsync,
+		mutateAsync: validateKey,
 		data: validatedKey,
 		isLoading: isValidatingKey,
-		isSuccess: isValidatingKeySuccess
+		isSuccess: isValidatingKeySuccess,
+		isError: isValidatingKeyError,
+		error: validatedKeyError
 	} = useValidateKey()
 
-	const validateKey = async (e: React.FormEvent<HTMLFormElement>) => {
+	const handleValidateKey = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-		await mutateAsync(key)
+		await validateKey(key)
 	}
 
 	useEffect(() => {
 		if (isValidatingKeySuccess && validatedKey.token) {
 			toast({ title: "Key valid, loging..." })
+
+			localStorage.setItem("token", validatedKey.token)
 			dispatch(setToken({
 				token: validatedKey.token
 			}))
 
 			router.push("/home")
 		}
-		else
+	}, [isValidatingKeySuccess, validatedKey, dispatch, router, toast])
+
+	useEffect(() => {
+		if (isValidatingKeyError && validatedKeyError.response?.data.detail.type === "key.not-valid")
 			toast({
 				title: "Key not valid, try again!",
 				variant: "destructive",
 			})
-	}, [isValidatingKeySuccess, validatedKey, dispatch, router, toast])
+	}, [isValidatingKeyError, toast, validatedKeyError])
 
 	return (
 		<div className="flex justify-center items-center">
 			<form
 				className="flex flex-col gap-3"
-				onSubmit={validateKey}
+				onSubmit={handleValidateKey}
 			>
 				<Label htmlFor="key">
 					Put your key

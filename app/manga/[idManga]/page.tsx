@@ -1,37 +1,33 @@
 'use client'
 
-import { useObterMangas } from "@/api/controllers/manga";
+import { useObterMangaPorId } from "@/api/controllers/manga";
 import { Capitulo } from "@/api/models/manga";
 import { Button } from "@/components/ui/button";
-import { codificarString, decodificarString, obterMangaSelecionado } from "@/lib/utils";
+import { codificarString } from "@/lib/utils";
 import { ArrowDownAZ, ArrowUpAz } from "lucide-react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
 
 export default function Page(
-    { params }: { params: { nomeManga: string } }
+    { params }: { params: { idManga: string } }
 ) {
-
-    const {
-        data: mangas,
-        isLoading
-    } = useObterMangas()
-
     const [capitulos, setCapitulos] = useState<Capitulo[] | undefined>([]);
     const [order, setOrder] = useState<"asc" | "desc">("asc");
 
-    const mangaSelecionado = useMemo(() => {
-        const manga = obterMangaSelecionado(mangas, decodificarString(params.nomeManga))
-        setCapitulos(manga?.capitulos)
-
-        return manga
-    }, [mangas, params.nomeManga])
+    const {
+        data: mangaSelecionado,
+        isLoading,
+    } = useObterMangaPorId(params.idManga)
 
     const handleReorderCapitulos = () => {
         setCapitulos(capitulos?.reverse())
         setOrder((old) => (old === "asc" ? "desc" : "asc"))
     }
+
+    useEffect(() => {
+        setCapitulos(mangaSelecionado?.capitulos)
+    }, [mangaSelecionado])
 
     return (
         <div className="flex justify-center max-w-[760px] mx-auto mt-4">
@@ -77,7 +73,7 @@ export default function Page(
                                                 className="flex items-center justify-center px-4 py-2 w-full rounded-md bg-slate-800"
                                             >
                                                 <Link
-                                                    href={`/manga/${codificarString(mangaSelecionado.nome as string)}/${codificarString(capitulo.nomeCapitulo)}`}
+                                                    href={`/manga/${params.idManga}/${codificarString(capitulo.nomeCapitulo)}`}
                                                     className="underline"
                                                 >
                                                     {capitulo.nomeCapitulo}

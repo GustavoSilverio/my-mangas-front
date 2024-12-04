@@ -1,6 +1,6 @@
 'use client'
 
-import { useObterMangas } from "@/api/controllers/manga";
+import { useObterResumoMangas } from "@/api/controllers/manga";
 import { MangaItem } from "@/components/manga-item";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,7 +21,7 @@ export default function Home() {
         isSuccess,
         isLoading: isObtendoMangas,
         refetch
-    } = useObterMangas(
+    } = useObterResumoMangas(
         search,
         !!token
     )
