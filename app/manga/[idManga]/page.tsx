@@ -65,7 +65,7 @@ export default function Page(
                             </div>
 
                             <div className="flex">
-                                <ul className="w-full flex flex-col sm:grid sm:grid-cols-3 md:grid-cols-4 gap-2 h-[calc(100dvh-183px)]">
+                                <ul className="w-full h-full flex flex-col sm:grid sm:grid-cols-3 md:grid-cols-4 gap-2">
                                     {capitulos.map((capitulo) => {
                                         return (
                                             <li
